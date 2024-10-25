@@ -1,0 +1,175 @@
+body {
+	padding: 0;
+	margin: 0;
+	background-color: black;
+	min-height: 100vh;
+}
+
+.rain-container {
+	position: absolute;
+    /* esto definira las compensaciones de inicio y final */
+	inset: 0;
+    /* esto nos permitira cortar los elementos que se salen del contenedor */
+	overflow: hidden;
+}
+
+/* Los keyframes nos sirve para dar un nombre y definir los fotogramas clave  */
+@keyframes flake {
+	0% {
+        /* Inicio de la animación */
+		transform: translate(var(--x-start), var(--y-start)) rotate(0);
+	}
+	100% {
+        /* Fin de la animación */
+		transform: translate(var(--x-end), var(--y-end)) rotate(50deg);
+	}
+}
+
+.rainDrop {
+    font-size: var(--sz);
+	filter: blur(var(--blur));
+	animation: flake 20s linear infinite;
+	transform: translate(var(--x-start), -15vh) rotate(0);
+	opacity: var(--a);
+}
+
+.rainDrop--s {
+	--sz: 3rem;
+	--blur: 2px;
+	--a: 0.8;
+	--x-start: 60vw;
+	--x-end: 0;
+	--y-start: 0;
+	--y-end: 100vh;
+	position: absolute;  
+	color: aliceblue;  
+}
+
+.rainDrop--m {
+	--sz: 2rem;
+	--blur: 2px;
+	--a: 0.8;
+	--x-start: 70vw;
+	--x-end: 0;
+	--y-start: 0;
+	--y-end: 100vh;
+	position: absolute;
+	filter: blur(0px);
+	z-index: 50;
+	color: aliceblue;
+}
+
+.rainDrop--l {
+	--sz: 3rem;
+	--blur: 0px;
+	--a: 0.8;
+	--x-start: 80vw;
+	--x-end: 0;
+	--y-start: 0;
+	--y-end: 100vh;
+	position: absolute;
+	z-index: 80;
+	color: aliceblue;
+}
+
+.rainDrop--xl {
+	--sz: 3rem;
+	--blur: 4px;
+	--a: 0.5;
+	--x-start: 90vw;
+	--x-end: 0;
+	--y-start: 0;
+	--y-end: 100vh;
+	position: absolute; 
+	z-index: 100;
+	color: aliceblue;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: grid;
+    place-items: center;
+    font-family: 'Share Tech Mono', monospace;
+}
+.container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+.countdown{
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    flex-wrap: wrap;
+}
+.countdown div{
+    display: grid;
+    place-items: center;
+    padding: 10px;
+}
+h1{
+    text-align: center;
+    color: #fff;
+    border: #1c1c1d;
+    font-size: 40px;
+    padding: 30px 10px;
+}
+p{
+    color: #fff;
+    font-size: 30px;
+}
+span{
+    display: block;
+    padding: 10px;
+    text-align: center;
+    color: #74ffe7;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.final-sms{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    transform: translateY(-100%);
+    transition: ease-in-out 0.5s;
+    background-color: #333;
+}
+.final-sms h2{
+    text-align: center;
+    font-size: 100px;
+    color: #fff;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.capa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1c1c1d;
+    opacity:0.5 ;
+    mix-blend-mode: overlay;
+}
+
+
